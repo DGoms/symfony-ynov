@@ -33,12 +33,15 @@
 # PHPUnit
 /app/phpunit.xml
 /phpunit.xml
+/phpunit.xml.dist
 
 # Build data
 /build/
 
 # Backup entities generated with doctrine:generate:entities command
 **/Entity/*~
+
+/vendor/
 
 
 # Created by https://www.gitignore.io/api/phpstorm
