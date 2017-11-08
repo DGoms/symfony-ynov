@@ -29,11 +29,11 @@ class Club
     private $nom;
 
     /**
-     * @var int
+     * @var \Sport
      *
-     * @ORM\Column(name="sport_id", type="integer")
+     * @ORM\ManyToOne(targetEntity="Sport", inversedBy="clubs")
      */
-    private $sportId;
+    private $sport;
 
     /**
      * @var int
@@ -41,6 +41,13 @@ class Club
      * @ORM\Column(name="nbTrophees", type="integer", nullable=true)
      */
     private $nbTrophees;
+
+    /**
+     * @var \Joueur
+     * 
+     * @ORM\OneToMany(targetEntity="Joueur", mappedBy="club", cascade={"remove", "persist"})
+     */
+    private $joueurs;
 
 
     /**
@@ -75,30 +82,6 @@ class Club
     public function getNom()
     {
         return $this->nom;
-    }
-
-    /**
-     * Set sportId
-     *
-     * @param integer $sportId
-     *
-     * @return Club
-     */
-    public function setSportId($sportId)
-    {
-        $this->sportId = $sportId;
-
-        return $this;
-    }
-
-    /**
-     * Get sportId
-     *
-     * @return int
-     */
-    public function getSportId()
-    {
-        return $this->sportId;
     }
 
     /**

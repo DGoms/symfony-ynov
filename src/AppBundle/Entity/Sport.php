@@ -28,6 +28,13 @@ class Sport
      */
     private $libelle;
 
+    /**
+     * @var \Club
+     * 
+     * @ORM\OneToMany(targetEntity="Club", mappedBy="sport", cascade={"remove", "persist"})
+     */
+    private $clubs;
+
 
     /**
      * Get id

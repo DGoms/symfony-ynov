@@ -43,11 +43,11 @@ class Joueur
     private $niveau;
 
     /**
-     * @var int
+     * @var \Club
      *
-     * @ORM\Column(name="club_id", type="integer")
+     * @ORM\ManyToOne(targetEntity="Club", inversedBy="joueurs")
      */
-    private $clubId;
+    private $club;
 
 
     /**
@@ -130,30 +130,6 @@ class Joueur
     public function getNiveau()
     {
         return $this->niveau;
-    }
-
-    /**
-     * Set clubId
-     *
-     * @param integer $clubId
-     *
-     * @return Joueur
-     */
-    public function setClubId($clubId)
-    {
-        $this->clubId = $clubId;
-
-        return $this;
-    }
-
-    /**
-     * Get clubId
-     *
-     * @return int
-     */
-    public function getClubId()
-    {
-        return $this->clubId;
     }
 }
 
