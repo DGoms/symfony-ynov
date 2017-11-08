@@ -69,5 +69,46 @@ class Sport
     {
         return $this->libelle;
     }
-}
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->clubs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add club
+     *
+     * @param \AppBundle\Entity\Club $club
+     *
+     * @return Sport
+     */
+    public function addClub(\AppBundle\Entity\Club $club)
+    {
+        $this->clubs[] = $club;
+
+        return $this;
+    }
+
+    /**
+     * Remove club
+     *
+     * @param \AppBundle\Entity\Club $club
+     */
+    public function removeClub(\AppBundle\Entity\Club $club)
+    {
+        $this->clubs->removeElement($club);
+    }
+
+    /**
+     * Get clubs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getClubs()
+    {
+        return $this->clubs;
+    }
+}

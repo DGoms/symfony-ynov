@@ -131,5 +131,28 @@ class Joueur
     {
         return $this->niveau;
     }
-}
 
+    /**
+     * Set club
+     *
+     * @param \AppBundle\Entity\Club $club
+     *
+     * @return Joueur
+     */
+    public function setClub(\AppBundle\Entity\Club $club = null)
+    {
+        $this->club = $club;
+
+        return $this;
+    }
+
+    /**
+     * Get club
+     *
+     * @return \AppBundle\Entity\Club
+     */
+    public function getClub()
+    {
+        return $this->club;
+    }
+}

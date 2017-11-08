@@ -107,5 +107,69 @@ class Club
     {
         return $this->nbTrophees;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->joueurs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Set sport
+     *
+     * @param \AppBundle\Entity\Sport $sport
+     *
+     * @return Club
+     */
+    public function setSport(\AppBundle\Entity\Sport $sport = null)
+    {
+        $this->sport = $sport;
+
+        return $this;
+    }
+
+    /**
+     * Get sport
+     *
+     * @return \AppBundle\Entity\Sport
+     */
+    public function getSport()
+    {
+        return $this->sport;
+    }
+
+    /**
+     * Add joueur
+     *
+     * @param \AppBundle\Entity\Joueur $joueur
+     *
+     * @return Club
+     */
+    public function addJoueur(\AppBundle\Entity\Joueur $joueur)
+    {
+        $this->joueurs[] = $joueur;
+
+        return $this;
+    }
+
+    /**
+     * Remove joueur
+     *
+     * @param \AppBundle\Entity\Joueur $joueur
+     */
+    public function removeJoueur(\AppBundle\Entity\Joueur $joueur)
+    {
+        $this->joueurs->removeElement($joueur);
+    }
+
+    /**
+     * Get joueurs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getJoueurs()
+    {
+        return $this->joueurs;
+    }
+}
