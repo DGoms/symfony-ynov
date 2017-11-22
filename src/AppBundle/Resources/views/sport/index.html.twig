@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <title>{% block title %}Welcome!{% endblock %}</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-</head>
-<body>
+{% extends "base.html.twig" %}
+
+{% block title %}{{ parent() }} - Home{% endblock %}
+
+{% block body %}
     <div>
+        {% if is_granted('ROLE_ADMIN') %}
+            <p>TEST ADMIN</p>
+        {% endif %}
+
         <ul>
         {% for sport in sports %}
             <li>
@@ -29,5 +30,4 @@
         {% endfor %}
         </ul>
     </div>
-</body>
-</html>
+{% endblock %}
