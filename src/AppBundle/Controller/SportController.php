@@ -2,7 +2,8 @@
 
 namespace AppBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use AppBundle\Entity\Sport;
+use AppBundle\Form\SportType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -19,6 +20,9 @@ class SportController extends Controller
         ]);
     }
     
+    /*
+     * SPORT
+     */
     public function getSportsAction(Request $request)
     {
         // replace this example code with whatever you need
@@ -40,6 +44,29 @@ class SportController extends Controller
         return $this->render('AppBundle::sport/showSport.html.twig', [
             'sport' => $sport,
             'clubs' => $clubs
+        ]);
+    }
+    
+    public function addSportAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+        
+        $sport = new Sport();
+        
+        $form = $this->createForm(SportType::class, $sport);
+        
+        $form->handleRequest($request);
+        
+        if($form->isSubmitted() && $form->isValid()){
+            $sport = $form->getData();
+            
+            $em->persist($sport);
+            $em->flush();
+            
+            return $this->redirectToRoute('sport_show', ['id' => $sport->getId()]);
+        }
+        
+        return $this->render('AppBundle::sport/addSport.html.twig', [
+            'form' => $form->createView()
         ]);
     }
     

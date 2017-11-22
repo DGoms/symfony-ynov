@@ -16,6 +16,10 @@ sport_show:
     requirements:
         id:     '\d+'
 
+sport_add:
+    path:       /sport/add
+    defaults:   { _controller: AppBundle:Sport:addSport }
+
 club:
     path:       /club
     defaults:   { _controller: AppBundle:Sport:getClubs }
