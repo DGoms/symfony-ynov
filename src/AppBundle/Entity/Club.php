@@ -28,24 +28,25 @@ class Club
      */
     private $nom;
 
-    /**
-     * @var \Sport
-     *
-     * @ORM\ManyToOne(targetEntity="Sport", inversedBy="clubs")
-     */
-    private $sport;
-
+    
     /**
      * @var int
      *
      * @ORM\Column(name="nbTrophees", type="integer", nullable=true)
      */
     private $nbTrophees;
-
+    
+    /**
+     * @var \Sport
+     *
+     * @ORM\ManyToOne(targetEntity="Sport", inversedBy="clubs")
+     */
+    private $sport;
+    
     /**
      * @var \Joueur
-     * 
-     * @ORM\OneToMany(targetEntity="Joueur", mappedBy="club", cascade={"remove", "persist"})
+     *
+     * @ORM\OneToMany(targetEntity="Joueur", mappedBy="club")
      */
     private $joueurs;
 

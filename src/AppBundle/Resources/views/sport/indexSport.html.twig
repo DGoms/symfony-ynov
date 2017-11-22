@@ -10,12 +10,9 @@
         <a href="{{ path('home') }}">HOME</a><br>
         <br>
         <br>
-        {{ sport.libelle }} <br>
-        <br>
-        {% for club in clubs %}
-            <a href="{{ path('club_show', {'id': club.id}) }}">{{ club.nom }}</a> <br>
+        {% for sport in sports %}
+            <a href="{{ path('sport_show', {'id': sport.id}) }}">{{ sport.libelle }}</a> <br>
         {% endfor %}
-        
     </div>
 </body>
 </html>

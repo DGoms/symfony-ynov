@@ -7,9 +7,27 @@
 </head>
 <body>
     <div>
+        <ul>
         {% for sport in sports %}
-            {{ sport.libelle }} <br>
+            <li>
+                <a href="{{ path('sport_show', {'id': sport.id}) }}">{{ sport.libelle }}</a><br>
+                <ul>
+                    {% for club in sport.clubs %}
+                        <li>
+                            <a href="{{ path('club_show', {'id': club.id}) }}">{{ club.nom }}</a><br>
+                            <ul>
+                                {% for joueur in club.joueurs %}
+                                    <li>
+                                        <a href="{{ path('joueur_show', {'id': joueur.id}) }}">{{ joueur.prenom }} {{ joueur.nom | upper }}</a><br>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li> <br>
         {% endfor %}
+        </ul>
     </div>
 </body>
 </html>

@@ -41,7 +41,7 @@ class Joueur
      * @ORM\Column(name="niveau", type="string", length=255)
      */
     private $niveau;
-
+    
     /**
      * @var \Club
      *

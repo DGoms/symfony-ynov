@@ -10,11 +10,10 @@
         <a href="{{ path('home') }}">HOME</a><br>
         <br>
         <br>
-        {{ sport.libelle }} <br>
+        {{ joueur.nom }} {{ joueur.prenom }} <br>
         <br>
-        {% for club in clubs %}
-            <a href="{{ path('club_show', {'id': club.id}) }}">{{ club.nom }}</a> <br>
-        {% endfor %}
+        Club: <a href="{{ path('club_show', {'id': joueur.club.id}) }}">{{ joueur.club.nom }}</a> <br>
+        Sport: <a href="{{ path('sport_show', {'id': joueur.club.sport.id}) }}">{{ joueur.club.sport.libelle }}</a>
         
     </div>
 </body>

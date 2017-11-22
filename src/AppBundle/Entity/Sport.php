@@ -27,14 +27,13 @@ class Sport
      * @ORM\Column(name="libelle", type="string", length=255)
      */
     private $libelle;
-
+    
     /**
      * @var \Club
-     * 
-     * @ORM\OneToMany(targetEntity="Club", mappedBy="sport", cascade={"remove", "persist"})
+     *
+     * @ORM\OneToMany(targetEntity="Club", mappedBy="sport")
      */
     private $clubs;
-
 
     /**
      * Get id
